@@ -1,0 +1,30 @@
+require('./css/app.sass');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+
+var Main = React.createClass({
+
+  getInitialState() {
+    return { message: "" }
+  },
+
+  componentWillMount() {
+    $.ajax({
+      type: "GET",
+      url: "/hello/MY_NAME",
+      success: (message) => {
+        this.setState({message})
+      },
+      error: (xhr, status, err) => {
+        console.log("FAIL", status, err)
+      }
+    })
+  },
+
+  render() {
+    return ( <span>Server says: {this.state.message}</span> )
+  }
+});
+
+ReactDOM.render( <Main />, document.querySelector('#root') );

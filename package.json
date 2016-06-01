@@ -1,0 +1,54 @@
+{
+  "name": "node-react-server",
+  "main": "index.js",
+  "description": "Example NodeJS server with WebPack and ReactJS",
+  "repository": "https://github.com/idlerun/node-react-server",
+  "license": "BSD",
+
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+
+  "scripts": {
+    "dev": "rm -rf public && webpack -d && NODE_ENV=development node .",
+    "build": "rm -rf public && webpack -p"
+  },
+
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.9.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "babel-runtime": "^6.9.2",
+    "body-parser": "^1.15.1",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "express": "^4.13.4",
+    "fs": "0.0.2",
+    "html-webpack-plugin": "^2.19.0",
+    "jquery": "^2.2.4",
+    "jsonwebtoken": "^7.0.0",
+    "log-timestamp": "^0.1.2",
+    "morgan": "^1.7.0",
+    "node-sass": "^3.7.0"
+  },
+
+  "devDependencies": {
+    "normalize.css": "^4.1.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-merge": "^0.13.0"
+  }
+}
