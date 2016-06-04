@@ -6,14 +6,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval-source-map',
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'src/client/index.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: 'bundle.js',
+    filename: '[hash].min.js',
     publicPath: '/'
   },
   plugins: [
@@ -23,18 +21,29 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
-    
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+   
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      compress: {
+        warnings: false,
+        screw_ie8: true
+      },
+      output: {
+        comments: false
+      } 
+    }),
 
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
   module: {
     loaders: [
       { test: /\.js?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.s(a|c)ss$/, loaders: ["style", "css?sourceMap", "sass?sourceMap&indentedSyntax"], include: /src/ }
+      { test: /\.s(a|c)ss$/, loaders: ["style", "css", "sass"], include: /src/ }
     ]
-  }
+  },
+  postcss: [
+    require('autoprefixer')
+  ]
 };

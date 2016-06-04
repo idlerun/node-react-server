@@ -23,7 +23,13 @@ var Main = React.createClass({
   },
 
   render() {
-    return ( <span>Server says: {this.state.message}</span> )
+    return (
+      <div>
+        <p>Server says: {this.state.message}</p>
+        <p>Here is a resource from src/public/baby.gif</p>
+        <img src="/baby.gif"/>
+      </div>
+    )
   }
 });
 

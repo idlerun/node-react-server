@@ -9,11 +9,13 @@ date: 2016-05-31
 
 This project is a starter template for a web server project with:
 
-- NodeJS server using Express 4 (with HTTPS)
+- NodeJS server using Express 4
 - ReactJS client packed up with webpack
+- Ready for Heroku
 
 Extra goodies:
 
+- Webpack dev hot-reloading for client JS and CSS
 - SASS support
 - Static resource serving
 - AJAX using JQuery
@@ -51,23 +53,10 @@ Build the JS to static resources (in /public)
 npm run build
 ```
 
-Now webpack is done its job and no longer needed.
-The dependencies for `dev` can be removed by running
-
-```bash
-npm prune --production
-```
-
-Or remove the `node_modules` dir and install only the production dependencies
-
-```bash
-npm install --production
-```
-
 Run the prod server with
 
 ```bash
-node .
+npm start
 ```
 
 ### Next Steps
@@ -77,11 +66,10 @@ node .
 
 Browse the rest of the template and customize to your preference!
 
+## Heroku
 
-### Caveats
+The app should be ready to deploy as a NodeJS app in Heroku.
 
-** Auto-reload not supported **
-
-The biggest lacking feature to me is that the dev server needs to be manually
-restarted to adopt any changes. We can't trivially use the webpack dev server since
-we are also running Express to host the server API.
+Note that there is a `postinstall` script which Heroku will run after the `npm install`
+command and will build the production JS and CSS resources. The `dist` folder should
+not be committed to git.
