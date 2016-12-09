@@ -3,7 +3,7 @@
   "main": "index.js",
   "description": "Example NodeJS server with WebPack and ReactJS",
   "repository": "https://github.com/idlerun/node-react-server",
-  "license": "BSD",
+  "license": "BSD-2-Clause",
 
   "babel": {
     "presets": [
@@ -18,7 +18,8 @@
   "scripts": {
     "dev": "NODE_ENV=development node .",
     "start": "node .",
-    "build": "rm -rf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile"
+    "build": "rm -rf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile",
+    "postinstall": "npm run build"
   },
 
   "dependencies": {
