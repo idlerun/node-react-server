@@ -39,11 +39,8 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.s(a|c)ss$/, loaders: ["style", "css", "sass"], include: /src/ }
+      { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.s(a|c)ss$/, loaders: ["style-loader", "css", "sass"], include: /src/ }
     ]
-  },
-  postcss: [
-    require('autoprefixer')
-  ]
+  }
 };
