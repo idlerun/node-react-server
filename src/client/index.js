@@ -1,4 +1,4 @@
-require('!style-loader!css-loader!sass-loader!./css/app.sass');
+require('./css/app.sass');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
