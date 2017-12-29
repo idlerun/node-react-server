@@ -3,13 +3,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-var Main = React.createClass({
+class Main extends React.Component {
 
-  getInitialState() {
-    return { message: "" }
-  },
+  constructor(props) {
+    super(props);
+    /**
+     * Until AJAX request below updates it, the message will be default value here
+     */
+    this.state = { message: "(loading..)" };
+  }
 
   componentWillMount() {
+    /*
+     * Send an AJAX request to the server to get a message to display
+     */
     $.ajax({
       type: "GET",
       url: "/hello/MY_NAME",
@@ -20,7 +27,7 @@ var Main = React.createClass({
         console.log("FAIL", status, err)
       }
     })
-  },
+  }
 
   render() {
     return (
@@ -31,6 +38,6 @@ var Main = React.createClass({
       </div>
     )
   }
-});
+}
 
 ReactDOM.render( <Main />, document.querySelector('#root') );
