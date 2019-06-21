@@ -1,0 +1,12 @@
+{
+  "name": "node-react-server",
+  "description": "Simple NodeJS React Template",
+  "keywords": [
+    "nodejs",
+    "express",
+    "react"
+  ],
+  "website": "https://idle.run/node-react-server",
+  "repository": "https://github.com/idlerun/node-react-server",
+  "logo": "https://idle.run/favicon.png"
+}
