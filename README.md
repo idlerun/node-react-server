@@ -70,6 +70,8 @@ Browse the rest of the template and customize to your preference!
 
 The app should be ready to deploy as a NodeJS app in Heroku.
 
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 Note that there is a `postinstall` script which Heroku will run after the `npm install`
 command and will build the production JS and CSS resources. The `dist` folder should
 not be committed to git.
